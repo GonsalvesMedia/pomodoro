@@ -86,11 +86,19 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
 }
 
+function addFiveMinutes() {
+    timeLeft += 5 * 60; // Add 5 minutes (300 seconds)
+    updateDisplay();
+}
+
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
 toggleButton.addEventListener('click', handleModeToggle);
 themeToggle.addEventListener('click', toggleTheme);
+
+const addTimeButton = document.getElementById('add-time');
+addTimeButton.addEventListener('click', addFiveMinutes);
 
 // Initialize the display
 resetTimer(); 

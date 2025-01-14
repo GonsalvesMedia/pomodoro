@@ -25,9 +25,22 @@
         </div>
         <div class="controls">
             <div class="button-group">
-                <button id="start">Start</button>
-                <button id="pause">Pause</button>
-                <button id="reset">Reset</button>
+                <button id="start">
+                  <svg width="24" height="24">
+                    <use href="#play-icon"/>
+                  </svg>
+                </button>
+                <button id="pause">
+                  <svg width="24" height="24">
+                    <use href="#pause-icon"/>
+                  </svg>
+                </button>
+                <button id="reset">
+                  <svg width="24" height="24">
+                    <use href="#reset-icon"/>
+                  </svg>
+                </button>
+                <button id="add-time">+5 Min</button>
             </div>
             <button id="toggle-mode">Switch to Break</button>
         </div>
@@ -44,6 +57,19 @@
       
       <symbol id="moon-icon" viewBox="0 0 24 24">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+      
+      <symbol id="play-icon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+      
+      <symbol id="pause-icon" viewBox="0 0 24 24">
+        <path d="M6 4h4v16H6zM14 4h4v16h-4z" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+      
+      <symbol id="reset-icon" viewBox="0 0 24 24">
+        <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-8 3.58-8 8s3.58 8 8 8c3.73 0 6.84-2.55 7.73-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M19.5 2.5v4h-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
     </svg>
 </body>
