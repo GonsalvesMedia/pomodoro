@@ -78,7 +78,6 @@ function handleModeToggle() {
 function toggleTheme() {
     isDarkMode = !isDarkMode;
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    themeToggle.innerHTML = isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
 
 startButton.addEventListener('click', startTimer);

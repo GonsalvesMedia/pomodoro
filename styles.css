@@ -16,10 +16,10 @@
   --primary: #0EA5E9;
   --primary-dark: #0284C7;
   --secondary: #94A3B8;
-  --background: #1E293B;
-  --surface: #334155;
-  --text: #F1F5F9;
-  --text-secondary: #475569;
+  --background: #020617;
+  --surface: #0F172A;
+  --text: #FFFFFF;
+  --text-secondary: #64748B;
   --success: #10B981;
   --success-dark: #059669;
 }
@@ -144,16 +144,35 @@ h1 {
   background: var(--surface);
   border: 2px solid var(--text-secondary);
   color: var(--text);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-toggle:hover {
   background: var(--text-secondary);
   color: var(--surface);
+  transform: translateY(-2px);
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 [data-theme="dark"] #pause,
