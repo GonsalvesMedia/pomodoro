@@ -110,12 +110,12 @@ h1 {
 }
 
 #reset {
-  background-color: var(--text-secondary);
+  background-color: #EF4444;
   color: white;
 }
 
 #reset:hover {
-  opacity: 0.9;
+  background-color: #DC2626;
   transform: translateY(-2px);
 }
 
