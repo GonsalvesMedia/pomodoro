@@ -262,30 +262,6 @@ h1 {
   transform: translateY(-2px);
 }
 
-.modal-close {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.75rem;
-  color: var(--text-secondary);
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: color 0.2s ease;
-}
-
-.modal-close:hover {
-  color: var(--text);
-  background: none;
-  transform: none;
-}
-
 .focus-display {
   display: none;
   margin-bottom: 1rem;
@@ -310,6 +286,7 @@ h1 {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .modal-content .button-secondary {
@@ -323,13 +300,28 @@ h1 {
   transition: all 0.2s ease;
 }
 
+#focus-submit {
+  background-color: var(--success);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#focus-submit:hover {
+  background-color: var(--success-dark);
+  transform: translateY(-2px);
+}
+
 .modal-content .button-secondary:hover {
   background-color: var(--text-secondary);
   color: var(--surface);
   transform: translateY(-2px);
 }
 
-#focus-submit {
-  background-color: var(--success);
-  color: white;
+.controls button:hover:not(:disabled) {
+  transform: translateY(-2px);
 }

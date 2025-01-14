@@ -32,15 +32,16 @@ function updateDisplay() {
     minutesDisplay.textContent = minutes.toString().padStart(2, '0');
     secondsDisplay.textContent = seconds.toString().padStart(2, '0');
     
-    // Update the page title
-    document.title = `${timeString} - Pomodoro Timer`;
+    // Update the page title with focus text if available
+    const focusValue = focusText.textContent;
+    document.title = `${timeString}${focusValue ? ` - ${focusValue}` : ''} - Pomodoro Timer`;
 }
 
 function switchMode() {
     isWorkTime = !isWorkTime;
     timeLeft = isWorkTime ? WORK_TIME : BREAK_TIME;
-    modeText.textContent = isWorkTime ? 'Work Time' : 'Break Time';
-    toggleButton.textContent = isWorkTime ? 'Switch to Break' : 'Switch to Work';
+    modeText.textContent = isWorkTime ? 'Time to focus!' : 'Break Time';
+    toggleButton.textContent = isWorkTime ? 'Take a break' : 'Switch to Work';
     updateDisplay();
 }
 
@@ -86,9 +87,10 @@ function resetTimer() {
     timerId = null;
     isWorkTime = true;
     timeLeft = WORK_TIME;
-    modeText.textContent = 'Work Time';
-    toggleButton.textContent = 'Switch to Break';
+    modeText.textContent = 'Time to focus!';
+    toggleButton.textContent = 'Take a break';
     focusDisplay.style.display = 'none';
+    focusText.textContent = '';
     updateDisplay();
     startButton.disabled = false;
 }
@@ -137,11 +139,6 @@ focusInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         focusSubmit.click();
     }
-}); 
-
-modalClose.addEventListener('click', () => {
-    focusModal.style.display = 'none';
-    startButton.disabled = false;
 }); 
 
 // Add event listener for ESC key

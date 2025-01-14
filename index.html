@@ -6,7 +6,7 @@
     <title>Pomodoro Timer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,12 +20,11 @@
     </button>
     <div id="focus-modal" class="modal">
       <div class="modal-content">
-        <button class="modal-close" id="modal-close">×</button>
         <h2>What are you focusing on?</h2>
         <input type="text" id="focus-input" placeholder="Enter your focus...">
         <div class="modal-buttons">
-          <button id="focus-cancel" class="button-secondary">Cancel</button>
           <button id="focus-submit">Start Focusing</button>
+          <button id="focus-cancel" class="button-secondary">Cancel</button>
         </div>
       </div>
     </div>
@@ -57,10 +56,10 @@
                 </button>
                 <button id="add-time">+5 Min</button>
             </div>
-            <button id="toggle-mode">Switch to Break</button>
+            <button id="toggle-mode">Take a break</button>
         </div>
         <div class="mode">
-            <span id="mode-text">Work Time</span>
+            <span id="mode-text">Time to focus!</span>
         </div>
     </div>
     <script src="script.js"></script>
