@@ -19,7 +19,7 @@
   --background: #020617;
   --surface: #0F172A;
   --text: #FFFFFF;
-  --text-secondary: #64748B;
+  --text-secondary: #94A3B8;
   --success: #10B981;
   --success-dark: #059669;
 }
@@ -33,6 +33,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -43,6 +44,7 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   max-width: 480px;
   width: 90%;
+  transition: background-color 0.3s ease;
 }
 
 h1 {
@@ -107,12 +109,12 @@ h1 {
 }
 
 #pause {
-  background-color: var(--secondary);
-  color: white;
+  background-color: #D1D5DB;
+  color: #374151;
 }
 
 #pause:hover:not(:disabled) {
-  opacity: 0.9;
+  background-color: #9CA3AF;
   transform: translateY(-2px);
 }
 
@@ -324,4 +326,56 @@ h1 {
 
 .controls button:hover:not(:disabled) {
   transform: translateY(-2px);
+}
+
+/* Add responsive design */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .timer {
+    font-size: 4rem;
+  }
+  
+  .controls .button-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Improve focus states */
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+}
+
+/* Add subtle animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.timer.active {
+  animation: pulse 2s infinite;
+}
+
+/* Improve active states */
+.controls button:active {
+  transform: translateY(1px);
+}
+
+/* Better color contrast for dark mode */
+[data-theme="dark"] {
+  --text-secondary: #94A3B8; /* Brighter than before */
+}
+
+/* Add transitions for theme switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  transition: background-color 0.3s ease;
 }
