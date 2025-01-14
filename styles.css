@@ -203,3 +203,133 @@ h1 {
   height: 24px;
   stroke: currentColor;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.modal-content input {
+  width: calc(100% - 2rem);
+  padding: 0.75rem 1rem;
+  margin: 0 0 1rem 0;
+  border: 2px solid var(--text-secondary);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--surface);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  /* Default styles for the submit button only */
+  background-color: none;
+  color: rgb(101, 101, 101);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Separate styles for the submit button hover */
+#focus-submit:hover {
+  background-color: var(--success-dark);
+  transform: translateY(-2px);
+}
+
+.modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--text);
+  background: none;
+  transform: none;
+}
+
+.focus-display {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: var(--background);
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.focus-label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: var(--text-secondary);
+}
+
+#focus-text {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-content .button-secondary {
+  background-color: var(--surface);
+  color: var(--text-secondary);
+  border: 2px solid var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-content .button-secondary:hover {
+  background-color: var(--text-secondary);
+  color: var(--surface);
+  transform: translateY(-2px);
+}
+
+#focus-submit {
+  background-color: var(--success);
+  color: white;
+}

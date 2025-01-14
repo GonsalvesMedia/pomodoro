@@ -10,6 +10,13 @@ const resetButton = document.getElementById('reset');
 const modeText = document.getElementById('mode-text');
 const toggleButton = document.getElementById('toggle-mode');
 const themeToggle = document.getElementById('theme-toggle');
+const focusModal = document.getElementById('focus-modal');
+const focusInput = document.getElementById('focus-input');
+const focusSubmit = document.getElementById('focus-submit');
+const focusDisplay = document.getElementById('focus-display');
+const focusText = document.getElementById('focus-text');
+const modalClose = document.getElementById('modal-close');
+const focusCancel = document.getElementById('focus-cancel');
 
 const WORK_TIME = 25 * 60; // 25 minutes in seconds
 const BREAK_TIME = 5 * 60; // 5 minutes in seconds
@@ -42,19 +49,30 @@ function startTimer() {
         if (timeLeft === undefined) {
             timeLeft = WORK_TIME;
         }
-        timerId = setInterval(() => {
-            timeLeft--;
-            updateDisplay();
-            
-            if (timeLeft === 0) {
-                clearInterval(timerId);
-                timerId = null;
-                switchMode();
-                startTimer();
-            }
-        }, 1000);
-        startButton.disabled = true;
+        
+        if (isWorkTime) {
+            focusModal.style.display = 'flex';
+            return;
+        }
+        
+        startTimerInterval();
     }
+}
+
+function startTimerInterval() {
+    timerId = setInterval(() => {
+        timeLeft--;
+        updateDisplay();
+        
+        if (timeLeft === 0) {
+            clearInterval(timerId);
+            timerId = null;
+            focusDisplay.style.display = 'none';
+            switchMode();
+            startTimer();
+        }
+    }, 1000);
+    startButton.disabled = true;
 }
 
 function pauseTimer() {
@@ -70,6 +88,7 @@ function resetTimer() {
     timeLeft = WORK_TIME;
     modeText.textContent = 'Work Time';
     toggleButton.textContent = 'Switch to Break';
+    focusDisplay.style.display = 'none';
     updateDisplay();
     startButton.disabled = false;
 }
@@ -102,3 +121,38 @@ addTimeButton.addEventListener('click', addFiveMinutes);
 
 // Initialize the display
 resetTimer(); 
+
+focusSubmit.addEventListener('click', () => {
+    const focusValue = focusInput.value.trim();
+    if (focusValue) {
+        focusText.textContent = focusValue;
+        focusDisplay.style.display = 'block';
+        focusModal.style.display = 'none';
+        focusInput.value = '';
+        startTimerInterval();
+    }
+});
+
+focusInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        focusSubmit.click();
+    }
+}); 
+
+modalClose.addEventListener('click', () => {
+    focusModal.style.display = 'none';
+    startButton.disabled = false;
+}); 
+
+// Add event listener for ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && focusModal.style.display === 'flex') {
+        focusModal.style.display = 'none';
+        startButton.disabled = false;
+    }
+}); 
+
+focusCancel.addEventListener('click', () => {
+    focusModal.style.display = 'none';
+    startButton.disabled = false;
+}); 

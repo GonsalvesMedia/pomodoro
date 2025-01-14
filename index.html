@@ -18,8 +18,23 @@
         <use href="#moon-icon"/>
       </svg>
     </button>
+    <div id="focus-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">×</button>
+        <h2>What are you focusing on?</h2>
+        <input type="text" id="focus-input" placeholder="Enter your focus...">
+        <div class="modal-buttons">
+          <button id="focus-cancel" class="button-secondary">Cancel</button>
+          <button id="focus-submit">Start Focusing</button>
+        </div>
+      </div>
+    </div>
     <div class="container">
         <h1>Pomodoro Timer</h1>
+        <div class="focus-display" id="focus-display">
+          <span class="focus-label">Focus:</span>
+          <span id="focus-text"></span>
+        </div>
         <div class="timer">
             <span id="minutes">25</span>:<span id="seconds">00</span>
         </div>
